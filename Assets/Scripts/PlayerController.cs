@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private WeaponParent weaponParent;
 
+    private Animator animator;
+
     [SerializeField]
     private float moveSpeed = 1f;
 
@@ -28,23 +30,34 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         weaponParent = GetComponentInChildren<WeaponParent>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         if (movementInput != Vector2.zero)
         {
-            bool success = TryMove(movementInput);
-
-            // this the player slide against the wall if moving diagonally
-            if (!success)
+            Vector2 actualMove = MoveResult(movementInput);
+            if (Mathf.Abs(actualMove.x) >= Mathf.Abs(actualMove.y) && actualMove.x >= 0)
             {
-                success = TryMove(new Vector2(movementInput.x, 0));
-                if (!success)
-                {
-                    TryMove(new Vector2(0, movementInput.y));
-                }
+                animator.SetInteger("walkDirection", 4);
             }
+            else if (Mathf.Abs(actualMove.x) >= Mathf.Abs(actualMove.y) && actualMove.x < 0)
+            {
+                animator.SetInteger("walkDirection", 3);
+            }
+            else if (Mathf.Abs(actualMove.x) < Mathf.Abs(actualMove.y) && actualMove.y >= 0)
+            {
+                animator.SetInteger("walkDirection", 2);
+            }
+            else if (Mathf.Abs(actualMove.x) < Mathf.Abs(actualMove.y) && actualMove.y < 0)
+            {
+                animator.SetInteger("walkDirection", 1);
+            }
+        }
+        else
+        {
+            animator.SetInteger("walkDirection", 0);
         }
     }
 
@@ -64,6 +77,32 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private Vector2 MoveResult(Vector2 direction)
+    {
+        bool success = TryMove(movementInput);
+
+
+        // this the player slide against the wall if moving diagonally
+        if (!success)
+        {
+            // try move in x first
+            success = TryMove(new Vector2(movementInput.x, 0));
+            if (!success)
+            {
+                // try move in y
+                return (TryMove(new Vector2(0, movementInput.y))) ? new Vector2(0, movementInput.y) : Vector2.zero;
+            } 
+            else
+            {
+                return new Vector2(movementInput.x, 0);
+            }
+
+        } else
+        {
+            return direction;
+        }
     }
 
     void OnMove(InputValue movementValue)
