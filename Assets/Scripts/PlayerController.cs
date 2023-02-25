@@ -7,7 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 movementInput;
 
+    private Vector2 mousePos;
+
     private Rigidbody2D rb;
+
+    private WeaponParent weaponParent;
 
     [SerializeField]
     private float moveSpeed = 1f;
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        weaponParent = GetComponentInChildren<WeaponParent>();
     }
 
     private void FixedUpdate()
@@ -64,5 +69,17 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
+    }
+
+    void OnLook(InputValue lookValue)
+    {
+        mousePos = lookValue.Get<Vector2>();
+        Vector3 pointerPos = new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane);
+        weaponParent.Pointerposition = Camera.main.ScreenToWorldPoint(pointerPos);
+    }
+
+    void OnFire()
+    {
+        weaponParent.Shoot();
     }
 }
