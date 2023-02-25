@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
     {
         bool success = TryMove(movementInput);
 
-
         // this the player slide against the wall if moving diagonally
         if (!success)
         {
@@ -92,7 +91,14 @@ public class PlayerController : MonoBehaviour
             if (!success)
             {
                 // try move in y
-                return (TryMove(new Vector2(0, movementInput.y))) ? new Vector2(0, movementInput.y) : Vector2.zero;
+                success = TryMove(new Vector2(0, movementInput.y));
+                if (!success) {
+                    return Vector2.zero;
+                } 
+                else
+                {
+                    return new Vector2(0, movementInput.y);
+                }
             } 
             else
             {
