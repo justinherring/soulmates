@@ -77,4 +77,9 @@ public class PlayerController : MonoBehaviour
         Vector3 pointerPos = new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane);
         weaponParent.Pointerposition = Camera.main.ScreenToWorldPoint(pointerPos);
     }
+
+    void OnFire()
+    {
+        weaponParent.Shoot();
+    }
 }
