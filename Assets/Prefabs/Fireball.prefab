@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8008164785032353700}
   - component: {fileID: 7257479316636537044}
   - component: {fileID: 2511464351351964913}
+  - component: {fileID: 310724241462239145}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,3 +157,15 @@ MonoBehaviour:
   - {fileID: -128561766, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
   - {fileID: 1391458343, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
   damage: 3
+--- !u!114 &310724241462239145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278780747650920616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4c3c6f0d90ab34b9c5d65157971361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

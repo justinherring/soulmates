@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     [SerializeField]
+    private float health;
+
+    [SerializeField]
     private float moveSpeed = 1f;
 
     [SerializeField]
@@ -26,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
+    private bool isAlive = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero && isAlive)
         {
             if (movementInput != Vector2.zero)
             {
@@ -92,7 +98,6 @@ public class PlayerController : MonoBehaviour
             return true;
         }
 
-        Debug.Log(direction);
         return false;
     }
 
@@ -105,11 +110,45 @@ public class PlayerController : MonoBehaviour
     {
         mousePos = lookValue.Get<Vector2>();
         Vector3 pointerPos = new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane);
-        weaponParent.Pointerposition = Camera.main.ScreenToWorldPoint(pointerPos);
+        if (isAlive)
+        {
+            weaponParent.Pointerposition = Camera.main.ScreenToWorldPoint(pointerPos);
+        }
     }
 
     void OnFire()
     {
-        weaponParent.Shoot();
+        if (isAlive)
+        {
+            weaponParent.Shoot();
+        }
+    }
+
+    public float Health
+    {
+        set
+        {
+            health = value;
+            if (health <= 0)
+            {
+                Defeated();
+            }
+        }
+
+        get
+        {
+            return health;
+        }
+    }
+
+    public void Defeated()
+    {
+        isAlive = false;
+        animator.SetTrigger("PlayerDefeated");
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(2);
     }
 }
