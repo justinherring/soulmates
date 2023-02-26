@@ -6,11 +6,26 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
+    private int gameMenuScene = 0;
+
+    [SerializeField]
     private int gameStartScene = 1;
+
+    [SerializeField]
+    private int gameOverScene = 2;
+    public void GotoMainMenu()
+    {
+        SceneManager.LoadScene(gameMenuScene);
+    }
 
     public void StartGame()
     {
         SceneManager.LoadScene(gameStartScene);
+    }
+
+    public void GotoGameOver()
+    {
+        SceneManager.LoadScene(gameOverScene);
     }
 
     public void QuitGame()
