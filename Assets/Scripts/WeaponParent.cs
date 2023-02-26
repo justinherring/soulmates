@@ -7,7 +7,7 @@ public class WeaponParent : MonoBehaviour
 {
     public Vector2 Pointerposition { get; set; }
 
-    public GameObject bullet;
+    public Bullet bullet;
     public Transform bulletTransform;
 
     private bool canFire = true;
@@ -54,7 +54,7 @@ public class WeaponParent : MonoBehaviour
         {
             canFire = false;
             Quaternion direction = transform.rotation;
-            Instantiate(bullet, bulletTransform.position, direction);
+            GameObject b = Instantiate(bullet.gameObject, bulletTransform.position, direction);
         }
     }
 }

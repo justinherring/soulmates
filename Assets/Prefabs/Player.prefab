@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65182a7021777054a9c75502e22551dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4278780747650920616, guid: bd65259c58f74f844a93e349f10882e1, type: 3}
+  bullet: {fileID: 2511464351351964913, guid: bd65259c58f74f844a93e349f10882e1, type: 3}
   bulletTransform: {fileID: 4645869401902507607}
   timeBetweenFiring: 0.3
 --- !u!1 &8336615701468399521
