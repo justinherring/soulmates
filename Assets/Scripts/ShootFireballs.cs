@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShootFireballs : MonoBehaviour
 {
 
+    public bool isAlive = true;
+
     [SerializeField]
     private float timeBetweenFireballs = 2f;
 
@@ -30,6 +32,11 @@ public class ShootFireballs : MonoBehaviour
     {
         int transition = 12;
         int reset = 30;
+
+        if (!isAlive)
+        {
+            return;
+        }
 
         if (stageCounter < transition && (stageCounter % 4 == 0))
         {

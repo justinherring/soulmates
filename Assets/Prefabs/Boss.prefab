@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  chatbubble: {fileID: 0}
+  shootFireballs: {fileID: 6622664019679294949}
   health: 100
   maxHealth: 100
 --- !u!95 &5684051306225428118
@@ -229,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77de55640f767a94d9083636b107eba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
   timeBetweenFireballs: 3
   fireballsAmount: 10
   startAngle: 90

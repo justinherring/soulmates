@@ -219,6 +219,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 3868698058790167483}
   weaponRenderer: {fileID: 6771408053796603253}
   timeBetweenFiring: 0.3
+  shootNoise: {fileID: 0}
 --- !u!1 &8336615701468399521
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  moveSpeed: 1
+  moveSpeed: 1.5
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
