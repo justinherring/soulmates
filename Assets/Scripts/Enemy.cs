@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Enemy : MonoBehaviour
     private Animator animator;
 
     public HealthBar healthBar;
+
+    public TextMeshProUGUI chatbubble;
+
+    public ShootFireballs shootFireballs;
 
     public float Health
     {
@@ -21,6 +26,7 @@ public class Enemy : MonoBehaviour
             }
             if (health <= 0)
             {
+                shootFireballs.isAlive = false;
                 Defeated();
             }
         }
@@ -59,6 +65,17 @@ public class Enemy : MonoBehaviour
     }
 
     public void RemoveBoss()
+    {
+        healthBar.enabled = false;
+        gameObject.SetActive(false);
+        if (chatbubble != null)
+        {
+            chatbubble.enabled = true;
+        }
+        Invoke("BossDefeated", 5);
+    }
+
+    private void BossDefeated()
     {
         Destroy(gameObject);
         SceneManager.LoadScene(3);
