@@ -17,6 +17,8 @@ public class WeaponParent : MonoBehaviour
     [SerializeField]
     private float timeBetweenFiring;
 
+    [SerializeField] private AudioSource weaponNoise;
+
     private void Update()
     {
         Vector2 direction = (Pointerposition - (Vector2)transform.position).normalized;
@@ -62,6 +64,7 @@ public class WeaponParent : MonoBehaviour
             canFire = false;
             Quaternion direction = transform.rotation;
             GameObject b = Instantiate(bullet.gameObject, bulletTransform.position, direction);
+            weaponNoise.Play();
         }
     }
 }
