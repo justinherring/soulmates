@@ -1168,13 +1168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3cbe2fa83554948b844281dbc6f97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  gameStartScene: 1
-=======
   gameMenuScene: 0
   gameStartScene: 1
   gameOverScene: 2
->>>>>>> 87c225dd8c5ec0d12bb1eb93974312e6ece93bb5
 --- !u!4 &1834066584
 Transform:
   m_ObjectHideFlags: 0
