@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float health;
 
+    public float maxHealth;
+
     [SerializeField]
     private float moveSpeed = 1f;
 
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
+    public HealthBar healthBar;
+
     private bool isAlive = true;
 
     void Start()
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         animator = GetComponent<Animator>();
+
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     private void FixedUpdate()
@@ -129,6 +135,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             health = value;
+            healthBar.SetHealth(health);
             if (health <= 0)
             {
                 Defeated();
