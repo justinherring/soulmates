@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8008164785032353700}
   - component: {fileID: 7257479316636537044}
   - component: {fileID: 310724241462239145}
+  - component: {fileID: 5685123151052710777}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1379831864, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  m_Sprite: {fileID: 34785677, guid: 089d8adc9762742bfb98b6ea90147af0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,6 +147,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4c3c6f0d90ab34b9c5d65157971361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
+  bulletSpeed: 3
   deadzone: 15
-  damage: 3
+  damage: 10
+--- !u!95 &5685123151052710777
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278780747650920616}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf12b3339a0a8024786b1a32b33a1669, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
