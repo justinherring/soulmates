@@ -28,10 +28,10 @@ public class ShootFireballs : MonoBehaviour
 
     private void Fire()
     {
-        int transition = 20;
-        int reset = 40;
+        int transition = 12;
+        int reset = 30;
 
-        if (stageCounter < transition && (stageCounter % 2 == 0))
+        if (stageCounter < transition && (stageCounter % 4 == 0))
         {
             FireballFanOut();
         }

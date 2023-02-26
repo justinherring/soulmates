@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77de55640f767a94d9083636b107eba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenFireballs: 2
-  fireballsAmount: 20
+  timeBetweenFireballs: 3
+  fireballsAmount: 10
   startAngle: 90
   endAngle: 270

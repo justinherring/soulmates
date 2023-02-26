@@ -155,4 +155,4 @@ MonoBehaviour:
   - {fileID: -1379831864, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
   - {fileID: -128561766, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
   - {fileID: 1391458343, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  damage: 3
+  damage: 2
