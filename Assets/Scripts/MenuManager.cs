@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayGameButton : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     [SerializeField]
     private int gameStartScene = 1;
@@ -11,5 +11,10 @@ public class PlayGameButton : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(gameStartScene);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
