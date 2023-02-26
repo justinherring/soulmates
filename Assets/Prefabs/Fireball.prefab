@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1363486918401085304}
   - component: {fileID: 8008164785032353700}
   - component: {fileID: 7257479316636537044}
-  - component: {fileID: 2511464351351964913}
   - component: {fileID: 310724241462239145}
   m_Layer: 0
   m_Name: Fireball
@@ -135,28 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.10071516, y: 0.095645025}
   m_EdgeRadius: 0
---- !u!114 &2511464351351964913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4278780747650920616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2cddb2fb4240647976485aa49c7e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 5
-  deadzone: 10
-  sprites:
-  - {fileID: 1357267208, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  - {fileID: -439340030, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  - {fileID: 1226210502, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  - {fileID: -1379831864, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  - {fileID: -128561766, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  - {fileID: 1391458343, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
-  damage: 3
 --- !u!114 &310724241462239145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4c3c6f0d90ab34b9c5d65157971361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 0
+  deadzone: 15
+  damage: 3
