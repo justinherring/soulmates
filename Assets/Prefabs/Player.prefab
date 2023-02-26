@@ -364,7 +364,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  collisionOffset: 0
+  collisionOffset: 0.05
 --- !u!50 &1196677620549948246
 Rigidbody2D:
   serializedVersion: 4

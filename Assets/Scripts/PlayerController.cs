@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
             else if (Mathf.Abs(actualMove.x) < Mathf.Abs(actualMove.y) && actualMove.y < 0)
             {
                 animator.SetInteger("walkDirection", 1);
+            } else
+            {
+                animator.SetInteger("walkDirection", 0);
             }
         }
         else
