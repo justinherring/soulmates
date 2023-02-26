@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -55,5 +56,11 @@ public class Enemy : MonoBehaviour
     public void RemoveEnemy()
     {
         Destroy(gameObject);
+    }
+
+    public void RemoveBoss()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene(3);
     }
 }
