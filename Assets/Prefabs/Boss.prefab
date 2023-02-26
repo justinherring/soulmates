@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3275735099316155557}
   - component: {fileID: 8991456442978892401}
   - component: {fileID: 5684051306225428118}
+  - component: {fileID: 3256811950402987170}
+  - component: {fileID: 6883679242938013963}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -32,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3311216275564171937}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1387730925, guid: 903db06bfc665f6439d547e54d3a471d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,7 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e5b7762d4aded4bbd594e81a032433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  healthBar: {fileID: 0}
+  health: 100
+  maxHealth: 100
 --- !u!95 &5684051306225428118
 Animator:
   serializedVersion: 5
@@ -168,3 +173,78 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3256811950402987170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747236473581027718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e07c1989adbd694ba71b3e9ff1c18ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireball: {fileID: 0}
+  fireballSource: {fileID: 0}
+--- !u!114 &6883679242938013963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747236473581027718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77de55640f767a94d9083636b107eba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenFireballs: 0.3
+  fireballsAmount: 10
+  startAngle: 90
+  endAngle: 270
+--- !u!1 &7993739479749902768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3311216275564171937}
+  - component: {fileID: 4338154618353190578}
+  m_Layer: 0
+  m_Name: FireballPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3311216275564171937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993739479749902768}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.22958162, y: -2.569895, z: 0.99244213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5903448375711493749}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4338154618353190578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993739479749902768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcf529370aa0dd46905c3bf0b31d42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledFireball: {fileID: 4278780747650920616, guid: 610a72bb084dda94080a9d3423714acc, type: 3}

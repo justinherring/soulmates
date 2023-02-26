@@ -8,6 +8,8 @@ public class Fireball : MonoBehaviour
     private SpriteRenderer sr;
     private Collider2D bulletCollider;
 
+    private Vector2 fireballDirection;
+
     [SerializeField]
     private float bulletSpeed;
 
@@ -15,6 +17,11 @@ public class Fireball : MonoBehaviour
     private float deadzone;
 
     public float damage;
+
+    private void OnEnable()
+    {
+        Invoke("Destroy", 3f);
+    }
 
     void Start()
     {
@@ -30,15 +37,27 @@ public class Fireball : MonoBehaviour
         {
             sr.flipY = true;
         }
-        rb.velocity = direction * bulletSpeed;
+        fireballDirection = direction;
     }
 
     void Update()
     {
-        if (transform.position.magnitude > deadzone)
-        {
-            Destroy(gameObject);
-        }
+        rb.velocity = fireballDirection * bulletSpeed;
+    }
+
+    public void SetMoveDirection(Vector2 direction)
+    {
+        fireballDirection = direction;
+    }
+
+    private void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
