@@ -37,25 +37,38 @@ public class PlayerController : MonoBehaviour
     {
         if (movementInput != Vector2.zero)
         {
-            Vector2 actualMove = MoveResult(movementInput);
-            if (Mathf.Abs(actualMove.x) >= Mathf.Abs(actualMove.y) && actualMove.x >= 0)
+            if (movementInput != Vector2.zero)
+            {
+                bool success = TryMove(movementInput);
+                if (!success)
+                {
+                    success = TryMove(new Vector2(movementInput.x, 0));
+                    if (!success)
+                    {
+                        success = TryMove(new Vector2(0, movementInput.y));
+                    }
+                }
+            }
+
+            if (movementInput == Vector2.zero)
+            {
+                animator.SetInteger("walkDirection", 0);
+            }
+            else if (Mathf.Abs(movementInput.x) >= Mathf.Abs(movementInput.y) && movementInput.x >= 0)
             {
                 animator.SetInteger("walkDirection", 4);
             }
-            else if (Mathf.Abs(actualMove.x) >= Mathf.Abs(actualMove.y) && actualMove.x < 0)
+            else if (Mathf.Abs(movementInput.x) >= Mathf.Abs(movementInput.y) && movementInput.x < 0)
             {
                 animator.SetInteger("walkDirection", 3);
             }
-            else if (Mathf.Abs(actualMove.x) < Mathf.Abs(actualMove.y) && actualMove.y >= 0)
+            else if (Mathf.Abs(movementInput.x) < Mathf.Abs(movementInput.y) && movementInput.y >= 0)
             {
                 animator.SetInteger("walkDirection", 2);
             }
-            else if (Mathf.Abs(actualMove.x) < Mathf.Abs(actualMove.y) && actualMove.y < 0)
+            else if (Mathf.Abs(movementInput.x) < Mathf.Abs(movementInput.y) && movementInput.y < 0)
             {
                 animator.SetInteger("walkDirection", 1);
-            } else
-            {
-                animator.SetInteger("walkDirection", 0);
             }
         }
         else
@@ -73,45 +86,14 @@ public class PlayerController : MonoBehaviour
             castCollisions,
             moveSpeed * Time.fixedDeltaTime + collisionOffset);
 
-        if (count == 0)
+        if (count == 0 || true)
         {
             rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movementInput);
             return true;
         }
 
+        Debug.Log(direction);
         return false;
-    }
-
-    private Vector2 MoveResult(Vector2 direction)
-    {
-        bool success = TryMove(movementInput);
-
-        // this the player slide against the wall if moving diagonally
-        if (!success)
-        {
-            // try move in x first
-            success = TryMove(new Vector2(movementInput.x, 0));
-            if (!success)
-            {
-                // try move in y
-                success = TryMove(new Vector2(0, movementInput.y));
-                if (!success) {
-                    return Vector2.zero;
-                } 
-                else
-                {
-                    return new Vector2(0, movementInput.y);
-                }
-            } 
-            else
-            {
-                return new Vector2(movementInput.x, 0);
-            }
-
-        } else
-        {
-            return direction;
-        }
     }
 
     void OnMove(InputValue movementValue)

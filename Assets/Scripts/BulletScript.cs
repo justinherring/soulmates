@@ -13,9 +13,13 @@ public class BulletScript : MonoBehaviour
     [SerializeField]
     private float deadzone;
 
+    [SerializeField]
+    private Sprite[] sprites;
+
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        sr.sprite = sprites[Random.Range(0, sprites.Length)];
 
         rb = GetComponent<Rigidbody2D>();
         float theta = transform.eulerAngles.z;
