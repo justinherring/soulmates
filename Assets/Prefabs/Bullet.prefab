@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4134161950594964355}
   - component: {fileID: 1363486918401085304}
   - component: {fileID: 8008164785032353700}
+  - component: {fileID: 7257479316636537044}
   - component: {fileID: 2511464351351964913}
   m_Layer: 0
   m_Name: Bullet
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4278780747650920616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28649998, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 41ff9939f4b41c648be7d98abf6b9d5a, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1379831864, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,6 +108,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &7257479316636537044
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278780747650920616}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.008239031, y: -0.0057039484}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.10071516, y: 0.095645025}
+  m_EdgeRadius: 0
 --- !u!114 &2511464351351964913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   deadzone: 10
+  sprites:
+  - {fileID: 1357267208, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  - {fileID: -439340030, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  - {fileID: 1226210502, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  - {fileID: -1379831864, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  - {fileID: -128561766, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
+  - {fileID: 1391458343, guid: 03bb2b1dfa6686b449680f49b24be684, type: 3}
