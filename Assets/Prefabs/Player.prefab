@@ -72,8 +72,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 41ff9939f4b41c648be7d98abf6b9d5a, type: 3}
+  m_SortingOrder: 11
+  m_Sprite: {fileID: 21300000, guid: 8ddc518471d7d4d49a33af2fc7fb6fbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2511464351351964913, guid: bd65259c58f74f844a93e349f10882e1, type: 3}
   bulletTransform: {fileID: 4645869401902507607}
+  characterRenderer: {fileID: 3868698058790167483}
+  weaponRenderer: {fileID: 6771408053796603253}
   timeBetweenFiring: 0.3
 --- !u!1 &8336615701468399521
 GameObject:

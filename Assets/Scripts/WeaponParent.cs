@@ -9,6 +9,7 @@ public class WeaponParent : MonoBehaviour
 
     public Bullet bullet;
     public Transform bulletTransform;
+    public SpriteRenderer characterRenderer, weaponRenderer;
 
     private bool canFire = true;
     private float timer;
@@ -34,6 +35,12 @@ public class WeaponParent : MonoBehaviour
             scale.y = 1;
         }
         transform.localScale = scale;
+
+        if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180) {
+            weaponRenderer.sortingOrder = characterRenderer.sortingOrder - 1;
+        } else {
+            weaponRenderer.sortingOrder = characterRenderer.sortingOrder + 1;
+        }
 
         // this manages cooldown between firing
         if (!canFire)
